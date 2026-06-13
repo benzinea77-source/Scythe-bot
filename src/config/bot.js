@@ -543,6 +543,89 @@ export function getRandomColor() {
 }
 
 export default botConfig;
+const { Collection } = require('discord.js');
+
+module.exports = {
+  name: 'messageCreate',
+  async execute(message, client) {
+    if (message.author.bot) return;
+    if (!message.content.startsWith('$')) return;
+
+    const args = message.content.slice(1).trim().split(/ +/);
+    const commandName = args.shift().toLowerCase();
+
+    // Find the slash command that matches
+    const slashCommand = client.commands.get(commandName);
+    if (!slashCommand) return;
+
+    // Build a fake interaction that mimics what slash commands expect
+    const fakeInteraction = {
+      guild: message.guild,
+      channel: message.channel,
+      user: message.author,
+      member: message.member,
+      client: client,
+      options: {
+        _args: args,
+        _hoisted: {},
+        getString:  (name) => fakeInteraction.options._hoisted[name] ?? args[0] ?? null,
+        getInteger: (name) => parseInt(fakeInteraction.options._hoisted[name] ?? args[0]) || null,
+        getNumber:  (name) => parseFloat(fakeInteraction.options._hoisted[name] ?? args[0]) || null,
+        getBoolean: (name) => (args[0] === 'true'),
+        getUser:    (name) => {
+          const mention = args[0];
+          if (!mention) return null;
+          const id = mention.replace(/[<@!>]/g, '');
+          return message.guild.members.cache.get(id)?.user ?? null;
+        },
+        getMember:  (name) => {
+          const mention = args[0];
+          if (!mention) return null;
+          const id = mention.replace(/[<@!>]/g, '');
+          return message.guild.members.cache.get(id) ?? null;
+        },
+        getChannel: (name) => {
+          const mention = args[0];
+          if (!mention) return null;
+          const id = mention.replace(/[<#>]/g, '');
+          return message.guild.channels.cache.get(id) ?? null;
+        },
+        getRole:    (name) => {
+          const mention = args[0];
+          if (!mention) return null;
+          const id = mention.replace(/[<@&>]/g, '');
+          return message.guild.roles.cache.get(id) ?? null;
+        },
+        getSubcommand: () => null,
+      },
+      // Make reply/send work like normal messages
+      reply: (data) => {
+        if (typeof data === 'string') return message.reply(data);
+        return message.reply(data);
+      },
+      editReply: (data) => {
+        if (typeof data === 'string') return message.reply(data);
+        return message.reply(data);
+      },
+      deferReply: async () => {},
+      followUp: (data) => {
+        if (typeof data === 'string') return message.channel.send(data);
+        return message.channel.send(data);
+      },
+      isCommand: () => true,
+      isChatInputCommand: () => true,
+      responded: false,
+      deferred: false,
+    };
+
+    try {
+      await slashCommand.execute(fakeInteraction, client);
+    } catch (err) {
+      console.error(`[Prefix Error] $${commandName}:`, err.message);
+      message.reply(`❌ Error running \`$${commandName}\`: ${err.message}`);
+    }
+  },
+};
 
 
 
