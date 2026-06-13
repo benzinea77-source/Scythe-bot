@@ -120,7 +120,7 @@ export default {
     // Ignore bots
     if (message.author.bot) return;
 
-    const PREFIX = '!'; // Change this to your prefix
+    const PREFIX = 'S!'; // Change this to your prefix
 
     // Ignore messages without prefix
     if (!message.content.startsWith(PREFIX)) return;
