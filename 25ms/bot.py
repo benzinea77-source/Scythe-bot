@@ -31,7 +31,7 @@ import urllib.parse
 is_localhost=False
 
 ssl_context = ssl.create_default_context(cafile=certifi.where())
-ownerid = 1123674631266639914
+ownerid = 1231642775812964362
 ApiToken = "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"
 intents = discord.Intents.all()
 
@@ -39,7 +39,7 @@ tag_access=[]
 sent_conflict_msg={}
 
 def get_roles(id):
-    crack_g = client.get_guild(1306714913539887237)
+    crack_g = client.get_guild(1446778878193434689)
     if crack_g:
         member = crack_g.get_member(id)
         if member:
