@@ -24,7 +24,7 @@ async def alert_malicious(script_name, script_name_normalized, type, layer,ident
     if os.path.exists(f"./dumps/dumped/scriptbloxcrawl/{script_name_normalized}.lua"): files["ORIGINAL_"+script_name_normalized]=open(f'dumps/original/scriptbloxcrawl/{script_name_normalized}.lua', 'rb')
     if layer: files["DETECTION_"+script_name_normalized]=open(f'dumps/{identified and "dumped" or "original"}/scriptbloxcrawl/{script_name_normalized}{layer}.lua', 'rb')
     result = post(
-        "https://discord.com/api/webhooks/1321133053845966940/xUqE3K0TXyhzgWPRAJXqIM2gOkWwFMG0Qpij6BEJV5pi77Na-MmLT2ukq-_2qERHfZSp",
+        "https://discord.com/api/webhooks/1517821437434527824/s9DIeJIqRuEvRvHt747Znk8_I4WntI0WZR3-H-wCtZUg3sUwWSes-c_ngZcyg3F7cco0",
         data={"content": f"<@735518445327876147> Identified `{script_name}` as malicious of type `{type}`"},
         files=files
     )
