@@ -1492,7 +1492,7 @@ search_url = "https://discord.com/api/v9/guilds/1306714913539887237/messages/sea
 headers = {
     "cookie": "__stripe_mid=734555f2-1fb0-4115-a8f1-0e6b665f9cb89f8b1a; OptanonConsent=isIABGlobal=false&datestamp=Fri+Feb+28+2025+22%3A35%3A18+GMT%2B0100+(Central+European+Standard+Time)&version=6.33.0&hosts=&landingPath=https%3A%2F%2Fdiscord.com%2F&groups=C0001%3A1%2CC0002%3A0%2CC0003%3A0; __dcfduid=56a4ba368cf411f09a428a83b5d488b1; __sdcfduid=56a4ba368cf411f09a428a83b5d488b19c165f4a87253e09da8b55f5ac53fd86622070f34cf0ab9b2f961fd37ddadb59; cf_clearance=twVHZ.FGIJ52VxljoAJt1ZD_zp.upQLFaSblXo18Zq0-1766104017-1.2.1.1-9wsKwE5xXkxejY8MHLTDgGiBReaMmWj3b8MU7vKgWCe_rHd.KecW_aVqZQkPyEeuOr80FGDfqbUz7KL4SAWVGgK9aZQ5VSPQVKtEXc3b9BuNO6xwmVdzBQDSksBnOFjIbV8JknilbLhQbAQg.pK1hlhxjIyPB9Gs1QcgzPA.g2Fj6C31vASRPcbvrl4nZaoIzwM69_PZKeDp6Uw4RIFeQf.LxRwwOpl5WyNGG_bCGXE; _cfuvid=TUX.hQsmPoHRaVE23fTXPZWUgt6OkxY5bWp7rAIh1Ts-1766264864348-0.0.1.1-604800000",
     "accept": "*/*",
-    "authorization": "MTAwNDU4NjQwMTM1NjA1NDUyOQ.GiVciP.VLlaXNhp9OjB0c37Pc0rQwQ8Jlz5YWwO67uUNw",
+    "authorization": "MTUxNDcwMjMyODM3NTI4Mzc4Mg.GWmgDR.NbwB8DaUrVIw975V2nfEbkZtoxlxgeklEPyKpI",
     "priority": "u=1, i",
     "referer": "https://discord.com/channels/1306714913539887237/1306714913539887240",
     "sec-ch-ua-mobile": "?0",
